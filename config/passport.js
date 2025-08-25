@@ -4,15 +4,14 @@ const bcrypt = require("bcrypt");
 const LocalStrategy = require("passport-local").Strategy;
 const { Strategy: JwtStrategy, ExtractJwt } = require("passport-jwt");
 
-
-
 const cookieExtractor = (req) => {
-    console.log("Incoming cookies:", req.cookies);
-    if (req && req.cookies && req.cookies.accessToken) {
-        return req.cookies.accessToken;
+
+    
+    if(req && req.cookies) {
+        return req.cookies.accessToken || req.cookies.token || null;
     }
     return null;
-};
+}
 
 
 const jwtFromRequest = ExtractJwt.fromExtractors([
@@ -61,8 +60,10 @@ passport.use(
         },
 
         async(payload, done) => {
+            
             try {
-                const user = await userModel.findById(payload.sub);
+                const user = await userModel.findById(payload.id);
+                
                 if(!user) {
                     return done(null, false)
                 }

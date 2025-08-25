@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Register Form</title>
+</head>
+
+<body>
+    <section class="register-main py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-6 col-md-8 mt-0 mt-lg-5">
+                    <div class="register-content">
+                        <h2 class="text-center fs-3 fw-bold mb-4">CREATE YOUR ACCOUNT</h2>
+                        <form action="/register" method="POST">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" name="username"
+                                    placeholder="Enter your Username" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" name="email"
+                                    placeholder="Enter your Email Address" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" name="password"
+                                    placeholder="Create a password">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cpassword" class="form-label">Confirm Password</label>
+                                <input type="password" class="form-control" name="cpassword"
+                                    placeholder="Confirm Your password">
+                            </div>
+                            <button type="submit" class="btn btn-outline-primary w-100 mt-3">Register</button>
+                            <p class="text-center mt-4">
+                            Already have an account? 
+                            <a href="/login" class="text-decoration-none">Sign In</a>
+                        </p>
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+    <div class="container text-center">
+        <p class="mb-2">&copy; 2025 JobPortal. All Rights Reserved.</p>
+        <div>
+            <a href="#" class="me-3"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="me-3"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+
+
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

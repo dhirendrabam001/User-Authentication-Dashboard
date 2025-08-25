@@ -5,13 +5,12 @@ const passport = require("passport");
 
 const createToken = (user) => {
     return jwt.sign(
-        {sub: user._id, email: user.email},
+        {id: user._id, email: user.email},
         process.env.JWT_SECRET,
         {expiresIn: "45m"}
     );
 };
 
-console.log("token", createToken);
 
 
 const registerData = async (req,res) => {
@@ -52,14 +51,14 @@ const loginData = (req,res, next) => {
         }
 
         const token = createToken(user);
-        console.log("Generated token", token);
         
-        res.cookie("accessToken", token, {
+        res.cookie("token", token, {
             httpOnly: true,
             secure: false,
             sameSite: "lax"
         });
-        res.json({ message: "Login successful", token });
+        
+        res.redirect("/dashboard")
     })(req, res, next);
 }
 

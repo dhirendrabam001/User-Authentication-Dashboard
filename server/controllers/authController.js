@@ -4,12 +4,15 @@ const userModel = require("../models/user");
 const passport = require("passport");
 
 const createToken = (user) => {
-    jwt.sign(
+    return jwt.sign(
         {sub: user._id, email: user.email},
         process.env.JWT_SECRET,
         {expiresIn: "45m"}
     );
 };
+
+console.log("token", createToken);
+
 
 const registerData = async (req,res) => {
     const {username, email, password, cpassword} = req.body;
@@ -45,10 +48,12 @@ const loginData = (req,res, next) => {
             return res.status(500).json({success: false, message: "server issue"});
         }
         if(!user) {
-            res.statu(401).json(info)
+           return res.status(401).json({success: false, message: "Invalid User", user: info});
         }
 
         const token = createToken(user);
+        console.log("Generated token", token);
+        
         res.cookie("accessToken", token, {
             httpOnly: true,
             secure: false,

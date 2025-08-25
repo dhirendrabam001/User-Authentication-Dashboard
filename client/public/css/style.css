@@ -178,3 +178,14 @@ footer a:hover {
   color: red;
   font-weight: bold;
 }
+
+.info-section  {
+    width: 50%;
+    margin: auto;
+}
+.info-section a {
+    background: #012f55;;
+    padding: 10px 20px;
+    margin-top: 10%;
+    display: inline-block;
+}

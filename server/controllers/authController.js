@@ -11,8 +11,6 @@ const createToken = (user) => {
     );
 };
 
-
-
 const registerData = async (req,res) => {
     const {username, email, password, cpassword} = req.body;
     
